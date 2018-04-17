@@ -2,8 +2,8 @@
 //  BeProductiveTests.swift
 //  BeProductiveTests
 //
-//  Created by Student on 2018. 02. 27..
-//
+//  Created by Student on 2018. 04. 17..
+//  Copyright © 2018. Student. All rights reserved.
 //
 
 import XCTest
@@ -28,7 +28,7 @@ class BeProductiveTests: XCTestCase {
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measureBlock {
+        self.measure {
             // Put the code you want to measure the time of here.
         }
     }
