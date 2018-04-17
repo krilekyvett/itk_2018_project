@@ -13,6 +13,7 @@ class DailyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        // does it change?
     }
 
     override func didReceiveMemoryWarning() {
