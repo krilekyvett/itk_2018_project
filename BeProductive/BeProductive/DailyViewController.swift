@@ -14,7 +14,15 @@ class DailyViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     
     
-    var list = ["Reading: War and Peace", "Buy groceries", "Finish assignment"]
+    var list: Array<Any> = ["Reading: War and Peace", "Buy groceries", "Finish assignment"]
+    
+    public func getList() -> Array<Any>{
+        return list;
+    }
+    
+    public func setList(input: Array<Any>) -> Void{
+        list = input as! [String]
+    }
     
         public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
         {
@@ -24,7 +32,7 @@ class DailyViewController: UIViewController, UITableViewDelegate, UITableViewDat
         public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
         {
             let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
-            cell.textLabel?.text = list[indexPath.row]
+            cell.textLabel?.text = list[indexPath.row] as! String
             
             return(cell)
         }
