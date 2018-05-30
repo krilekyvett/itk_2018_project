@@ -8,20 +8,27 @@
 
 import UIKit
 
+struct TaskEntry{
+    var dueDate: Date
+    var taskName: String
+}
+
+var list: Array<TaskEntry> = []
+let defaults = UserDefaults.standard
+
 class DailyViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
     @IBOutlet weak var myTableView: UITableView!
     
     
     
-    var list: Array<Any> = ["Reading: War and Peace", "Buy groceries", "Finish assignment"]
     
     public func getList() -> Array<Any>{
         return list;
     }
     
     public func setList(input: Array<Any>) -> Void{
-        list = input as! [String]
+        list = input as! [TaskEntry]
     }
     
         public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -32,7 +39,7 @@ class DailyViewController: UIViewController, UITableViewDelegate, UITableViewDat
         public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
         {
             let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
-            cell.textLabel?.text = list[indexPath.row] as! String
+            cell.textLabel?.text = list[indexPath.row].taskName as String
             
             return(cell)
         }
@@ -41,10 +48,21 @@ class DailyViewController: UIViewController, UITableViewDelegate, UITableViewDat
         {
             if editingStyle == UITableViewCellEditingStyle.delete
             {
-                list.remove(at: indexPath.row)
-                myTableView.reloadData()
+                let alert = UIAlertController(title: "Warning", message: "Are you sure you want to delete this item?", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { action in
+                    self.deleteCell(row: indexPath.row)
+                }))
+                alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                
             }
         }
+    
+    func deleteCell(row: Int) -> Void{
+        list.remove(at: row)
+        defaults.set(list, forKey: "SavedTasks")
+        myTableView.reloadData()
+    }
         
         override func viewDidAppear(_ animated: Bool) {
             myTableView.reloadData()
@@ -55,8 +73,10 @@ class DailyViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         myTableView.delegate = self
         myTableView.dataSource = self
-        // Do any additional setup after loading the view, typically from a nib.
-        // does it change?
+        /*
+        list = (defaults.array(forKey: "SavedTasks") as? [TaskEntry])!
+        */
+        
     }
 
     override func didReceiveMemoryWarning() {
