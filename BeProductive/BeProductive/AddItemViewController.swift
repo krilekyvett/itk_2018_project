@@ -13,24 +13,30 @@ class AddItemViewController: UIViewController {
     
     let userCalendar = Calendar.current
     
+    @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var input: UITextField!
     
     @IBAction func addItem(_ sender: AnyObject)
     {
+        /*
         dateComponents.year = 2018
         dateComponents.month = 7
         dateComponents.day = 11
         dateComponents.timeZone = TimeZone(abbreviation: "CFT")
         dateComponents.hour = 8
         dateComponents.minute = 34
+         */
         
         if(input.text! == ""){
             showEmptyNameFieldWarning()
         }
         else{
-            appendToList(item: TaskEntry(taskName: input.text!, dueDate: userCalendar.date(from: dateComponents)!))
+            //appendToList(item: TaskEntry(taskName: input.text!, dueDate: userCalendar.date(from: dateComponents)!))
+            appendToList(item: TaskEntry(taskName: input.text!, dueDate: datePicker.date))
             input.text = ""
         }
+        
+        
     }
     
     override func viewDidLoad() {
