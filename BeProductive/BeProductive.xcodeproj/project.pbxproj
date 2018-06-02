@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3F26447D20B981DB00EF7A34 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F26447C20B981DB00EF7A34 /* AddItemViewController.swift */; };
+		3F2970CB20C2A2ED00275E86 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2970CA20C2A2ED00275E86 /* Utils.swift */; };
 		3FAFE0CC20861A670041B6D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFE0CB20861A670041B6D0 /* AppDelegate.swift */; };
 		3FAFE0CE20861A670041B6D0 /* DailyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFE0CD20861A670041B6D0 /* DailyViewController.swift */; };
 		3FAFE0D120861A670041B6D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FAFE0CF20861A670041B6D0 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 		3FAFE0D620861A670041B6D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FAFE0D420861A670041B6D0 /* LaunchScreen.storyboard */; };
 		3FAFE0E120861A670041B6D0 /* BeProductiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFE0E020861A670041B6D0 /* BeProductiveTests.swift */; };
 		3FAFE0EC20861A670041B6D0 /* BeProductiveUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFE0EB20861A670041B6D0 /* BeProductiveUITests.swift */; };
+		3FC480C520C199B900CD6B07 /* TaskEntryDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC480C420C199B900CD6B07 /* TaskEntryDefinition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		3F26447C20B981DB00EF7A34 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
+		3F2970CA20C2A2ED00275E86 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		3FAFE0C820861A670041B6D0 /* BeProductive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeProductive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FAFE0CB20861A670041B6D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FAFE0CD20861A670041B6D0 /* DailyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +52,7 @@
 		3FAFE0E720861A670041B6D0 /* BeProductiveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeProductiveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FAFE0EB20861A670041B6D0 /* BeProductiveUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeProductiveUITests.swift; sourceTree = "<group>"; };
 		3FAFE0ED20861A670041B6D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FC480C420C199B900CD6B07 /* TaskEntryDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEntryDefinition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				3FAFE0D420861A670041B6D0 /* LaunchScreen.storyboard */,
 				3FAFE0D720861A670041B6D0 /* Info.plist */,
 				3F26447C20B981DB00EF7A34 /* AddItemViewController.swift */,
+				3FC480C420C199B900CD6B07 /* TaskEntryDefinition.swift */,
+				3F2970CA20C2A2ED00275E86 /* Utils.swift */,
 			);
 			path = BeProductive;
 			sourceTree = "<group>";
@@ -262,8 +268,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F2970CB20C2A2ED00275E86 /* Utils.swift in Sources */,
 				3FAFE0CE20861A670041B6D0 /* DailyViewController.swift in Sources */,
 				3FAFE0CC20861A670041B6D0 /* AppDelegate.swift in Sources */,
+				3FC480C520C199B900CD6B07 /* TaskEntryDefinition.swift in Sources */,
 				3F26447D20B981DB00EF7A34 /* AddItemViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

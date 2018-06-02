@@ -24,21 +24,17 @@ class AddItemViewController: UIViewController {
         dateComponents.hour = 8
         dateComponents.minute = 34
         
-        
-        if (input.text != "")
-        {
-            let item: TaskEntry = TaskEntry(dueDate: userCalendar.date(from: dateComponents)!, taskName: input.text!)
-            
-            list.append(item)
-            defaults.set(list, forKey: "SavedTasks")
+        if(input.text! == ""){
+            showEmptyNameFieldWarning()
+        }
+        else{
+            appendToList(item: TaskEntry(taskName: input.text!, dueDate: userCalendar.date(from: dateComponents)!))
             input.text = ""
         }
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     override func didReceiveMemoryWarning() {
@@ -46,6 +42,12 @@ class AddItemViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    public func showEmptyNameFieldWarning(){
+        let alert = UIAlertController(title: "Warning", message: "You cannot add a task without a name.", preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "Got it", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
     
 }
 

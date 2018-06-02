@@ -8,20 +8,13 @@
 
 import UIKit
 
-struct TaskEntry{
-    var dueDate: Date
-    var taskName: String
-}
-
 var list: Array<TaskEntry> = []
 let defaults = UserDefaults.standard
 
 class DailyViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
     @IBOutlet weak var myTableView: UITableView!
-    
-    
-    
+
     
     public func getList() -> Array<Any>{
         return list;
@@ -59,24 +52,34 @@ class DailyViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     
     func deleteCell(row: Int) -> Void{
-        list.remove(at: row)
-        defaults.set(list, forKey: "SavedTasks")
+        removeFromList(row: row, list: list)
+        reload()
+    }
+    
+    func reload(){
+        loadList()
         myTableView.reloadData()
     }
-        
-        override func viewDidAppear(_ animated: Bool) {
-            myTableView.reloadData()
+    
+    func loadList(){
+        let decoded  = defaults.object(forKey: "list") as? Data
+        if(decoded != nil){
+            list = NSKeyedUnarchiver.unarchiveObject(with: decoded!) as! Array<TaskEntry>
         }
-
+        else{
+            list = []
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        myTableView.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         myTableView.delegate = self
         myTableView.dataSource = self
-        /*
-        list = (defaults.array(forKey: "SavedTasks") as? [TaskEntry])!
-        */
-        
+        loadList()
     }
 
     override func didReceiveMemoryWarning() {
