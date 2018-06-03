@@ -31,8 +31,14 @@ class AddItemViewController: UIViewController {
             showEmptyNameFieldWarning()
         }
         else{
+            
             //appendToList(item: TaskEntry(taskName: input.text!, dueDate: userCalendar.date(from: dateComponents)!))
-            appendToList(item: TaskEntry(taskName: input.text!, dueDate: datePicker.date))
+            var latestId = list.last?.taskId
+            if(latestId == nil){
+                latestId = "-1";
+            }
+            let newId = String(Int32(latestId!)! + 1)
+            appendToList(item: TaskEntry(taskId: newId, taskName: input.text!, dueDate: datePicker.date))
             input.text = ""
         }
         
