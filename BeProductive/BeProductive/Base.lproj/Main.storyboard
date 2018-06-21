@@ -11,16 +11,63 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Daily Tasks-->
+        <!--View Controller-->
+        <scene sceneID="fwG-VQ-g6V">
+            <objects>
+                <viewController id="pCb-Dt-WcQ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OpI-LY-WIl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hvB-zz-wCb">
+                                <rect key="frame" x="15" y="35" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="hvB-zz-wCb" secondAttribute="height" multiplier="1:1" id="2yw-85-sqF"/>
+                                    <constraint firstAttribute="height" constant="48" id="H0H-Zk-xdw"/>
+                                    <constraint firstAttribute="width" constant="48" id="QTp-gA-s9d"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="back"/>
+                                <connections>
+                                    <segue destination="j8K-WO-ipv" kind="presentation" id="xld-Jy-YlD"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M4f-qa-neH">
+                                <rect key="frame" x="75" y="39" width="225" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hvB-zz-wCb" firstAttribute="top" secondItem="Fhu-Pb-JzG" secondAttribute="top" constant="15" id="6Y2-7W-VZq"/>
+                            <constraint firstItem="hvB-zz-wCb" firstAttribute="leading" secondItem="Fhu-Pb-JzG" secondAttribute="leading" constant="15" id="JRr-kA-X11"/>
+                            <constraint firstItem="hvB-zz-wCb" firstAttribute="width" secondItem="hvB-zz-wCb" secondAttribute="height" multiplier="1:1" id="bNa-vY-P5O"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Fhu-Pb-JzG"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MiC-0g-SI4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2175.1999999999998" y="-2514.6926536731635"/>
+        </scene>
+        <!--Today-->
         <scene sceneID="57o-m4-1Tt">
             <objects>
-                <viewController id="bOy-Mo-9t4" userLabel="Daily Tasks" customClass="DailyViewController" customModule="BeProductive" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bOy-Mo-9t4" customClass="DailyViewController" customModule="BeProductive" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ycC-aH-PYr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No tasks for today." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="72f-XA-KaF">
+                                <rect key="frame" x="0.0" y="322" width="375" height="23"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="19"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="inz-bD-QZ1">
-                                <rect key="frame" x="0.0" y="80" width="375" height="538"/>
+                                <rect key="frame" x="0.0" y="90" width="375" height="528"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="12g-Hf-sSG">
@@ -35,39 +82,60 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ucM-4s-IJ1">
-                                <rect key="frame" x="310" y="35" width="48" height="48"/>
+                                <rect key="frame" x="303" y="35" width="55" height="55"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="enp-Xf-PcX"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="48" id="enp-Xf-PcX" userLabel="height = 55"/>
                                     <constraint firstAttribute="width" secondItem="ucM-4s-IJ1" secondAttribute="height" multiplier="1:1" id="fud-mL-5wa"/>
-                                    <constraint firstAttribute="width" constant="48" id="pWx-g0-d1z"/>
+                                    <constraint firstAttribute="width" constant="55" id="pWx-g0-d1z"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="add"/>
                                 <connections>
                                     <segue destination="3Af-NK-gOC" kind="presentation" id="zKw-vJ-TUZ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afn-8m-XpQ">
+                                <rect key="frame" x="17" y="35" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="48" id="7qU-9F-dFL" userLabel="height = 55"/>
+                                    <constraint firstAttribute="width" constant="48" id="HEG-VQ-w2d"/>
+                                    <constraint firstAttribute="width" secondItem="afn-8m-XpQ" secondAttribute="height" multiplier="1:1" id="RZL-oM-j8R"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="settings"/>
+                                <connections>
+                                    <segue destination="pCb-Dt-WcQ" kind="presentation" id="vRm-eP-5Dd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="72f-XA-KaF" firstAttribute="centerY" secondItem="ycC-aH-PYr" secondAttribute="centerY" id="7FP-9I-qb0"/>
                             <constraint firstItem="WUM-1h-kDx" firstAttribute="bottom" secondItem="inz-bD-QZ1" secondAttribute="bottom" id="8D0-Jn-5MO"/>
-                            <constraint firstItem="inz-bD-QZ1" firstAttribute="top" secondItem="WUM-1h-kDx" secondAttribute="top" constant="60" id="c0C-hO-952"/>
+                            <constraint firstItem="72f-XA-KaF" firstAttribute="leading" secondItem="WUM-1h-kDx" secondAttribute="leading" id="ORX-eS-A0A"/>
+                            <constraint firstItem="afn-8m-XpQ" firstAttribute="width" secondItem="afn-8m-XpQ" secondAttribute="height" multiplier="1:1" id="Pu8-Nf-oA6"/>
+                            <constraint firstItem="afn-8m-XpQ" firstAttribute="leading" secondItem="WUM-1h-kDx" secondAttribute="leading" constant="17" id="RAv-6k-HC4"/>
+                            <constraint firstItem="afn-8m-XpQ" firstAttribute="top" secondItem="WUM-1h-kDx" secondAttribute="top" constant="15" id="UNT-TN-SKL"/>
+                            <constraint firstItem="inz-bD-QZ1" firstAttribute="top" secondItem="WUM-1h-kDx" secondAttribute="top" constant="70" id="c0C-hO-952"/>
                             <constraint firstItem="inz-bD-QZ1" firstAttribute="trailing" secondItem="WUM-1h-kDx" secondAttribute="trailing" id="fFa-NL-KxF"/>
                             <constraint firstItem="ucM-4s-IJ1" firstAttribute="top" secondItem="WUM-1h-kDx" secondAttribute="top" constant="15" id="jYj-EL-Y6w"/>
+                            <constraint firstItem="WUM-1h-kDx" firstAttribute="trailing" secondItem="72f-XA-KaF" secondAttribute="trailing" id="nEb-K5-RTo"/>
                             <constraint firstItem="WUM-1h-kDx" firstAttribute="trailing" secondItem="ucM-4s-IJ1" secondAttribute="trailing" constant="17" id="nqz-oD-RQv"/>
+                            <constraint firstItem="WUM-1h-kDx" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="72f-XA-KaF" secondAttribute="bottom" constant="274" id="nyj-Ig-9TB"/>
+                            <constraint firstItem="afn-8m-XpQ" firstAttribute="width" secondItem="afn-8m-XpQ" secondAttribute="height" multiplier="1:1" id="xKy-p1-fHY"/>
                             <constraint firstItem="inz-bD-QZ1" firstAttribute="leading" secondItem="WUM-1h-kDx" secondAttribute="leading" id="zmv-dS-Boi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WUM-1h-kDx"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Daily Tasks" image="daily" id="KsJ-ow-qyh">
+                    <tabBarItem key="tabBarItem" title="Today" image="daily" id="KsJ-ow-qyh">
                         <inset key="largeContentSizeImageInsets" minX="0.0" minY="-1" maxX="0.0" maxY="1"/>
                     </tabBarItem>
                     <connections>
                         <outlet property="myTableView" destination="inz-bD-QZ1" id="teq-eZ-VId"/>
+                        <outlet property="noTasksLabel" destination="72f-XA-KaF" id="RhV-UW-spm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kyt-jm-3AC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1782" y="-1786"/>
+            <point key="canvasLocation" x="-1783.2" y="-1786.0569715142431"/>
         </scene>
         <!--AddItem-->
         <scene sceneID="w8P-B3-UhR">
@@ -100,9 +168,13 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4q5-oO-hjy">
-                                <rect key="frame" x="140" y="539" width="95" height="28"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="13"/>
+                                <rect key="frame" x="135" y="532" width="105" height="35"/>
+                                <color key="backgroundColor" red="0.19564121961593628" green="0.74513846635818481" blue="0.65089470148086548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="7jl-le-c9W"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="105" id="uwB-Tj-nEh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <state key="normal" title="Add item">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -118,6 +190,13 @@
                                     <!--2018-06-02 10:49:24 +0000-->
                                 </date>
                             </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add a new task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FCQ-fn-AIf">
+                                <rect key="frame" x="71" y="39" width="225" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -145,7 +224,7 @@
         <!--Calendar-->
         <scene sceneID="fUp-SV-9Ib">
             <objects>
-                <viewController id="lTH-5U-IYN" sceneMemberID="viewController">
+                <viewController id="lTH-5U-IYN" customClass="ViewController" customModule="BeProductive" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EYx-qk-QwC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -156,19 +235,74 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RjM-d0-KW6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2337" y="-416"/>
+            <point key="canvasLocation" x="-3479" y="-405"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--ThisWeek-->
+        <scene sceneID="1vM-Ps-rcq">
+            <objects>
+                <viewController id="I3d-yx-1Kn" userLabel="ThisWeek" customClass="ThisWeekViewController" customModule="BeProductive" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bRw-rA-Ohh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No tasks within the next 7 days." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vbK-fE-ReH">
+                                <rect key="frame" x="0.0" y="322" width="375" height="23"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="19"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="phP-yR-R3s">
+                                <rect key="frame" x="0.0" y="80" width="375" height="538"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="rVm-P4-psC">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="cell" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rVm-P4-psC" id="v0R-pO-BcD">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration" identifier="cell"/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="1ET-Pu-Weh" firstAttribute="bottom" secondItem="phP-yR-R3s" secondAttribute="bottom" id="0aF-FC-Pb0"/>
+                            <constraint firstItem="vbK-fE-ReH" firstAttribute="centerY" secondItem="bRw-rA-Ohh" secondAttribute="centerY" id="HvD-yn-VEo"/>
+                            <constraint firstItem="phP-yR-R3s" firstAttribute="leading" secondItem="1ET-Pu-Weh" secondAttribute="leading" id="MTa-ih-a6M"/>
+                            <constraint firstItem="vbK-fE-ReH" firstAttribute="trailing" secondItem="1ET-Pu-Weh" secondAttribute="trailing" id="RKQ-TS-x4l"/>
+                            <constraint firstItem="phP-yR-R3s" firstAttribute="top" secondItem="1ET-Pu-Weh" secondAttribute="top" constant="60" id="T5K-nI-8jh"/>
+                            <constraint firstAttribute="trailing" secondItem="phP-yR-R3s" secondAttribute="trailing" id="gx6-mD-IaX"/>
+                            <constraint firstItem="vbK-fE-ReH" firstAttribute="leading" secondItem="1ET-Pu-Weh" secondAttribute="leading" id="mEM-r6-A8s"/>
+                            <constraint firstItem="1ET-Pu-Weh" firstAttribute="bottom" secondItem="phP-yR-R3s" secondAttribute="bottom" id="yxA-X7-sHs"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1ET-Pu-Weh"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="This week" image="week" id="yiy-rk-IYf"/>
+                    <connections>
+                        <outlet property="myTableView" destination="phP-yR-R3s" id="2Ds-dm-ScS"/>
+                        <outlet property="noTasksLabel" destination="vbK-fE-ReH" id="Dw9-6Q-m5g"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IMc-aG-1YI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2084" y="-370"/>
+        </scene>
+        <!--Tab Bar View Controller-->
         <scene sceneID="6ZK-Bi-R51">
             <objects>
-                <tabBarController id="j8K-WO-ipv" sceneMemberID="viewController">
+                <tabBarController id="j8K-WO-ipv" customClass="TabBarViewController" customModule="BeProductive" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cdu-h4-Zb9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <outlet property="myTabBar" destination="cdu-h4-Zb9" id="AdJ-NN-3T0"/>
                         <segue destination="bOy-Mo-9t4" kind="relationship" relationship="viewControllers" id="usy-pt-2mt"/>
+                        <segue destination="I3d-yx-1Kn" kind="relationship" relationship="viewControllers" id="yDy-5J-Idg"/>
                         <segue destination="lTH-5U-IYN" kind="relationship" relationship="viewControllers" id="Eip-RN-dx6"/>
                     </connections>
                 </tabBarController>
@@ -182,6 +316,8 @@
         <image name="back" width="25" height="25"/>
         <image name="calendar" width="25" height="25"/>
         <image name="daily" width="25" height="25"/>
+        <image name="settings" width="25" height="25"/>
+        <image name="week" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="6iN-gO-3E0"/>

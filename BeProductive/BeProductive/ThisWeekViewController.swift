@@ -11,13 +11,9 @@
 
 
 import UIKit
-
-var list: Array<TaskEntry> = []         // the array of tasks
-var todaysList: Array<TaskEntry> = []   // the array of tasks due today
-let defaults = UserDefaults.standard    // NSUserDefaults constant
-
-class DailyViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
-
+var thisWeeksList: Array<TaskEntry> = []   // the array of tasks due this week
+class ThisWeekViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+    
     @IBOutlet weak var noTasksLabel: UILabel!
     @IBOutlet weak var myTableView: UITableView!
     
@@ -33,25 +29,25 @@ class DailyViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     /**
-    Returns the current rowcount of todaysList.
+     Returns the current rowcount of todaysList.
      */
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return (todaysList.count)
+        return (thisWeeksList.count)
     }
     
     /**
-    Fills myTableView with data.
+     Fills myTableView with data.
      */
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         //let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-        cell?.textLabel?.text = todaysList[indexPath.row].taskName as String
+        cell?.textLabel?.text = thisWeeksList[indexPath.row].taskName as String
         //cell?.backgroundColor = UIColor.green
         return(cell)!
     }
     
     /**
-    Enables the delete function on cells.
+     Enables the delete function on cells.
      */
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath){
         if editingStyle == UITableViewCellEditingStyle.delete{
@@ -85,7 +81,7 @@ class DailyViewController: UIViewController, UITableViewDelegate, UITableViewDat
      */
     //TODO: have to modify this in order to use it with list and today's list
     func deleteCell(row: Int) -> Void{
-        removeFromList(row: Int(todaysList[row].taskId)!, list: list)
+        removeFromList(row: Int(thisWeeksList[row].taskId)!, list: list)
         reload()
     }
     
@@ -106,6 +102,7 @@ class DailyViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // reload today's tasks only if the two dates are not equal (so I don't have to reload the whole thing all the time the user enters the app)
         let date = Date()
         
+        
         let calendar = Calendar.current
         let components = calendar.dateComponents([.year, .month, .day], from: date)
         
@@ -120,15 +117,15 @@ class DailyViewController: UIViewController, UITableViewDelegate, UITableViewDat
         else{
             list = []
         }
-        todaysList = []
-       for i in stride(from: 0, to: list.count, by: 1){
+        thisWeeksList = []
+        for i in stride(from: 0, to: list.count, by: 1){
             var itemComponent = calendar.dateComponents([.year, .month, .day], from: list[i].dueDate)
-            if(itemComponent.year == year! && itemComponent.month == month! && itemComponent.day == day){
-                todaysList.append(list[i])
+            if(itemComponent.year! == year! && itemComponent.month! == month! && itemComponent.day! <= day! + 7){
+                thisWeeksList.append(list[i])
             }
         }
         
-        if(todaysList == []){
+        if(thisWeeksList == []){
             self.view.bringSubview(toFront: noTasksLabel)
         }
     }
@@ -141,4 +138,5 @@ class DailyViewController: UIViewController, UITableViewDelegate, UITableViewDat
         defaults.removeObject(forKey: "taskList")
     }
 }
+
 

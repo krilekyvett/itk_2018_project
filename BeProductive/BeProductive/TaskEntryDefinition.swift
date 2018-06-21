@@ -7,6 +7,9 @@
 //
 
 import Foundation
+/**
+ Definition of the custom datatype: TaskEntry.
+ */
 public class TaskEntry: NSObject, NSCoding {
     var taskId: String
     var taskName: String
